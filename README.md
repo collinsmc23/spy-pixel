@@ -1,4 +1,3 @@
-![spy.gif](SPY)
 # 🔍 Email Spy Pixel
 *A basic tracking pixel to track email opens.*
 
