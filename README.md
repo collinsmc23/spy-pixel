@@ -1,3 +1,4 @@
+![spy.gif](SPY)
 # 🔍 Email Spy Pixel
 *A basic tracking pixel to track email opens.*
 
@@ -16,7 +17,5 @@ The following services need to be installed:
 - python-pip
 - python 3.8+
 
-### Step 1
-`git clone `
 
 
