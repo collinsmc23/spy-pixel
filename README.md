@@ -17,4 +17,58 @@ The following services need to be installed:
 - python 3.8+
 
 
+### Step 1
+
+Provision a t2.micro Amazon EC2 instance on Ubuntu 20.04.
+
+💡 Make sure to generate or make note of the public/private key pair. A private key will be downloaded by default if you choose to generate one.
+
+![](Create EC2 Instance)
+
+### Step 2
+
+Log into the ubuntu instance with the private key using SSH. Alternatively, select the EC2 instance and use the online "Connect Profile."
+
+`ssh -i "my_private_key.pem" ubuntu@ec2-publicDNS.amazonaws.com`
+
+Clone this repository: `git clone https://github.com/collinsmc23/spy-pixel`
+
+![](SSH)
+
+### Step 3
+
+Change directories into the `cd ~/spy-pixel/app`.
+
+Link the the app directory to site-root defined apache configuration `/var/www/html.`: `sudo ln -sT ~/app /var/www/html/app`.
+
+💡 To check if this works use `echo "Hello World!" > index.html`. You should see this message when navigating to ubuntu@ec2-publicDNS.amazonaws.com.
+
+### Step 4
+
+Add the following block below configuration to the `/etc/apache2/sites-enabled/000-default.conf`.
+
+```
+WSGIDaemonProcess flaskapp threads=5
+WSGIScriptAlias / /var/www/html/flaskapp/flaskapp.wsgi<Directory flaskapp>
+    WSGIProcessGroup flaskapp
+    WSGIApplicationGroup %{GLOBAL}
+    Order deny,allow
+    Allow from all
+</Directory>
+```
+![](Apache Config)
+
+*Image source: https://jqn.medium.com/deploy-a-flask-app-on-aws-ec2-1850ae4b0d41*
+### Step 5
+
+Restart the web service: `sudo service apache2 restart`.
+
+Go to `ubuntu@ec2-publicDNS.amazonaws.com/image` to see the 1x1 pixel.
+
+### Step 6
+
+Add this 1x1 pixel as img src HTML to a web page or email.
+
+`<img src ="ubuntu@ec2-publicDNS.amazonaws.com/image" height=1 width=1>`
+
 
