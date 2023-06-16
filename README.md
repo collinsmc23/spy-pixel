@@ -56,7 +56,7 @@ WSGIScriptAlias / /var/www/html/flaskapp/flaskapp.wsgi<Directory flaskapp>
     Allow from all
 </Directory>
 ```
-![](Apache Config)
+![Apache Config](https://github.com/collinsmc23/spy-pixel/blob/main/images/Apache-config.png)
 
 *Image source: https://jqn.medium.com/deploy-a-flask-app-on-aws-ec2-1850ae4b0d41*
 ### Step 5
