@@ -10,20 +10,23 @@ This project uses Python Flask to serve a static web page with a `pixel.png` inc
 
 To deploy this web application, create a basic server using a VPS / cloud provider of choice. Used Amazon EC2 Ubuntu 20.04 LTS in this deployment.
 
-The following services need to be installed:
+The following services need to be installed on cloud host, use your favorite package manager (`apt-get install`):
 - apache2
 - libapach2-mod-wsgi-py3
 - python-pip
 - python 3.8+
 
+This project assumes you are able to set up a basic Amazon EC2 instance. 
 
 ### Step 1
 
 Provision a t2.micro Amazon EC2 instance on Ubuntu 20.04.
 
-💡 Make sure to generate or make note of the public/private key pair. A private key will be downloaded by default if you choose to generate one.
+💡 Make sure to generate or make note of the public/private key pair. A private key will be downloaded by default if you choose to generate one. Also ensure your security group (or cloud firewall) allows HTTP traffic (port 80).
 
-![](Create EC2 Instance)
+Take note of the Public EC2 DNS domain name (image below).
+
+![Create EC2 Instance](https://github.com/collinsmc23/spy-pixel/blob/main/images/Public%20DNS.png)
 
 ### Step 2
 
@@ -33,7 +36,7 @@ Log into the ubuntu instance with the private key using SSH. Alternatively, sele
 
 Clone this repository: `git clone https://github.com/collinsmc23/spy-pixel`
 
-![](SSH)
+!(SSH Output)[https://github.com/collinsmc23/spy-pixel/blob/main/images/SSH%20EC2.PNG]
 
 ### Step 3
 
@@ -70,5 +73,10 @@ Go to `ubuntu@ec2-publicDNS.amazonaws.com/image` to see the 1x1 pixel.
 Add this 1x1 pixel as img src HTML to a web page or email.
 
 `<img src ="ubuntu@ec2-publicDNS.amazonaws.com/image" height=1 width=1>`
+
+
+**Spy Away (For Learning Purposes only)**
+
+![Spy Dwight](https://github.com/collinsmc23/spy-pixel/blob/main/images/spy.gif )
 
 
