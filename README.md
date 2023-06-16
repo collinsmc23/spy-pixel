@@ -36,7 +36,7 @@ Log into the ubuntu instance with the private key using SSH. Alternatively, sele
 
 Clone this repository: `git clone https://github.com/collinsmc23/spy-pixel`
 
-!(SSH Output)[https://github.com/collinsmc23/spy-pixel/blob/main/images/SSH%20EC2.PNG]
+![SSH Output](https://github.com/collinsmc23/spy-pixel/blob/main/images/SSH%20EC2.PNG)
 
 ### Step 3
 
