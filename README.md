@@ -66,13 +66,13 @@ WSGIScriptAlias / /var/www/html/flaskapp/flaskapp.wsgi<Directory flaskapp>
 
 Restart the web service: `sudo service apache2 restart`.
 
-Go to `ubuntu@ec2-publicDNS.amazonaws.com/image` to see the 1x1 pixel.
+Go to `http://ec2-publicDNS.amazonaws.com/image` to see the 1x1 pixel.
 
 ### Step 6
 
 Add this 1x1 pixel as img src HTML to a web page or email.
 
-`<img src ="ubuntu@ec2-publicDNS.amazonaws.com/image" height=1 width=1>`
+`<img src ="Http://ec2-publicDNS.amazonaws.com/image" height=1 width=1>`
 
 
 **Spy Away (For Learning Purposes only)**
